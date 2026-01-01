@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { AITool, Analytics } from '../types';
 import { CATEGORIES } from '../constants';
 
@@ -34,7 +34,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ tools, onAddTool, onUpda
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'shreyash@123') {
+    if (password === process.env.ADMIN_KEY) {
       setIsAuthenticated(true);
       setError('');
     } else {
